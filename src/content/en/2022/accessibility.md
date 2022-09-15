@@ -2,21 +2,22 @@
 #See https://github.com/HTTPArchive/almanac.httparchive.org/wiki/Authors'-Guide#metadata-to-add-at-the-top-of-your-chapters
 title: Accessibility
 description: Accessibility chapter of the 2022 Web Almanac covering ease of reading, navigation, forms, media, ARIA, and accessibility apps.
-authors: [SaptakS, scottdavis99]
+authors: [SaptakS, scottdavis99, thibaudcolas]
 reviewers: [shantsis]
 analysts: [thibaudcolas]
 editors: [dereknahman]
 translators: []
-SaptakS_bio: Saptak S is a human rights centered web developer, focusing on usability, security, privacy and accessibility topics in web development. He is a contributor and maintainer of various different open source projects like <a hreflang="en" href="https://www.a11yproject.com">The A11Y Project</a>, <a hreflang="en" href="https://onionshare.org/">OnionShare</a> and <a hreflang="en" href="https://wagtail.io/">Wagtail</a>. You can find him blogging at <a hreflang="en" href="https://saptaks.blog">saptaks.blog</a>.
+SaptakS_bio: Saptak S is a human rights centered web developer, focusing on usability, security, privacy and accessibility topics in web development. He is a contributor and maintainer of various different open source projects like <a hreflang="en" href="https://www.a11yproject.com">The A11Y Project</a>, <a hreflang="en" href="https://onionshare.org/">OnionShare</a> and <a hreflang="en" href="https://wagtail.org/">Wagtail</a>. You can find him blogging at <a hreflang="en" href="https://saptaks.blog">saptaks.blog</a>.
 scottdavis99_bio: Scott Davis is an author and Digital Accessibility Advocate with <a hreflang="en" href="https://www.thoughtworks.com/">Thoughtworks</a>, where he focuses on leading-edge / innovative / emerging / non-traditional aspects of web development. "Digital Accessibility is so much more than a compliance checkbox; Accessibility is a springboard for innovation."
+thibaudcolas_bio: Thibaud Colas is a web developer and open source contributor focusing on accessibility topics. He is a core contributor to the <a hreflang="en" href="https://wagtail.org/">Wagtail</a> CMS, and a member of the accessibility team for <a hreflang="en" href="https://www.djangoproject.com/">Django</a>.
 results: https://docs.google.com/spreadsheets/d/1ladaKh6RbtMKQwkccwxDJGQf85KyhfLrtlM_9e9sLH8/
-featured_quote: TODO
-featured_stat_1: TODO
-featured_stat_label_1: TODO
-featured_stat_2: TODO
-featured_stat_label_2: TODO
-featured_stat_3: TODO
-featured_stat_label_3: TODO
+featured_quote: Good accessibility benefits everyone, not just those with disabilities. This is one of the core principles of Universal Design. After the COVID-19 pandemic started, more and more people have been reliant on the internet. Likewise,  accessibility needs to improve as well, or we risk alienating a lot of people. Although the state of web accessibility still leaves a lot to be desired, we did see an overall improvement in sites’ accessibility this year.
+featured_stat_1: 8%
+featured_stat_label_1: Sites using `prefers-color-scheme` to adjust styles based on light/dark mode
+featured_stat_2: 22.9%
+featured_stat_label_2: Mobile sites that pass color contrast audit in Lighthouse
+featured_stat_3: 9%
+featured_stat_label_3: Sites using `:focus-visible`, compared to only 0.6% last year
 ---
 
 ## Introduction
@@ -28,6 +29,19 @@ When does a software feature cease being an "accessibility feature" and simply b
 Good accessibility benefits everyone, not just those with disabilities. This is one of the core principles of <a hreflang="en" href="https://en.wikipedia.org/wiki/Universal_design">Universal Design</a>. Tim Berners-Lee said, "The power of the Web is in its universality. Access by everyone regardless of disability is an essential aspect." After the COVID-19 pandemic started, more and more people have been reliant on the internet. Likewise, accessibility needs to improve as well, or we risk alienating a lot of people.
 
 The median overall site score for all Lighthouse Accessibility audit data rose from 80% in 2020 to 82% in 2021, then 83% in 2022. We hope that this increase represents a shift in the right direction.
+
+Although the state of web accessibility still leaves a lot to be desired, we did see an overall improvement in sites' accessibility this year. The median overall site score for all Lighthouse Accessibility audit data rose from 80% in 2020 to 82% in 2021, then 83% in 2022. Looking at Lighthouse results audit-by-audit gives us a sense of what specific improvements have been made.
+
+{{ figure_markup(
+  image="lighthouse-audit-improvements-yoy.png",
+  caption="Lighthouse audit improvements year-over-year",
+  description="A bar chart showing how many sites pass 5 specific Lighthouse audits, in 2021 and 2022. aria-required-children passes on 63% of sites in 2021, and 68% in 2022. aria-tooltip-name passes on 29% in 2021, and 75% in 2022. definition-list passes on 65% in 2021, and 68% in 2022. html-has-lang passes on 81% in 2021, and 84% in 2022. object-alt passes on 1% in 2021, and 20% in 2022.",
+  chart_url="https://docs.google.com/spreadsheets/d/e/2PACX-1vSi-gjiB_GnE2U4P7oxN2zqs0DbA2YDPqtsfIm3IBmtph_VE7FTrQvw7L6FsOsJlcZFI6HEULXuKEeb/pubchart?oid=1480221360&format=interactive",
+  sheets_gid="1270834582",
+  sql_file="lighthouse_a11y_audits.sql",
+) }}
+
+Looking at Lighthouse audits reporting results, out of 41 automated checks, 35 passed successfully on more sites in 2022 compared to 2021. 11 audits show improvements greater than 1%, with <a hreflang="en" href="https://web.dev/aria-required-children/)">aria-required-children</a>, <a hreflang="en" href="https://web.dev/aria-name/)">aria-tooltip-name</a>, <a hreflang="en" href="https://web.dev/definition-list/)">definition-list</a>, <a hreflang="en" href="https://web.dev/html-has-lang/)">html-has-lang</a>, and <a hreflang="en" href="https://web.dev/object-alt/)">object-alt</a> showing the most noteworthy increases. We hope that this increase represents a shift in the right direction.
 
 In the hope of improvement towards accessibility in the web, we have tried to write the chapter with some actionable links and solutions that people can follow. For consistency, we chose to use the person-first term "people with disabilities" throughout this chapter, though we acknowledge that the identity-first term "disabled people" is also used. Our choice in terminology is in no way prescriptive of which term is most appropriate.
 
@@ -126,6 +140,22 @@ There are certain User Preference Media Queries from the <a hreflang="en" href="
 We found that 34.2% of mobile websites use `prefers-reduced-motion`. Websites that rely on motion can cause issues for people with vestibular disorders, so it is important to adapt or remove those animations with the `prefers-reduced-motion` media query. There are many great <a hreflang="en" href="https://alistapart.com/article/designing-safer-web-animation-for-motion-sensitivity/">resources</a> related to <a hreflang="en" href="https://www.a11yproject.com/posts/design-accessible-animation/">designing accessible animation</a>.
 
 8.2% of desktop websites and 7.7% of mobile websites used the `prefers-color-scheme` media query, while 1.1% of desktop sites and 1.2% of mobile sites used `prefers-contrast`. Both of these media queries improve content readability by adjusting the <a hreflang="en" href="https://www.a11yproject.com/posts/operating-system-and-browser-accessibility-display-modes/">display mode</a> based on the user's preference. `prefers-color-scheme` allows the browser to detect the user's system color. Using this information, the web developer can then provide a light or dark mode accordingly. `prefer-contrast` is useful for users with low vision or photosensitivity who may benefit from high contrast modes.
+
+### Forced colors mode
+
+Forced colors mode is an accessibility feature intended to increase the readability of text through color contrast. In forced colors mode, the user's operating system takes over control of most color-related styles. Common patterns such as background images are completely disabled, so text-to-background contrast is more predictable. Its best-known implementation is the High contrast mode in Windows, renamed <a hreflang="en" href="https://support.microsoft.com/en-us/topic/fedc744c-90ac-69df-aed5-c8a90125e696">Contrast Themes</a> in Windows 11. Those themes provide alternative low and high contrast color palettes, as well as the ability to customize any of the available <a hreflang="en" href="https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/system_color_keywords">system colors</a>.
+
+{{ figure_markup(
+  image="forced-colors-mode.png",
+  caption="Forced colors mode.",
+  description="A bar chart showing that 24.7% of desktop sites and 23.6% of mobile sites use the `-ms-high-contrast` media query, and 8.7% of desktop sites and 8.1% of mobile sites use `forced-colors`.",
+  chart_url="https://docs.google.com/spreadsheets/d/e/2PACX-1vSi-gjiB_GnE2U4P7oxN2zqs0DbA2YDPqtsfIm3IBmtph_VE7FTrQvw7L6FsOsJlcZFI6HEULXuKEeb/pubchart?oid=359612516&format=interactive",
+  sheets_gid="48059230",
+  sql_file="media_query_features.sql",
+) }}
+
+Like other user preference media queries, we see a lot of websites making adjustments based on forced colors mode. 8.1% of mobile sites and 8.7% of desktop sites use the `forced-colors` media query to alter their styles, while usage of the legacy IE11-only `-ms-high-contrast` media query is above 20% for both mobile and desktop.
+This doesn't tell us to what extent sites do support forced colors mode, but the data is encouraging nonetheless considering the `forced-colors` media query has only been supported in major browsers <a hreflang="en" href="https://caniuse.com/?search=forced-colors">since 2020</a>, and support for <a hreflang="en" href="https://developer.chrome.com/docs/devtools/rendering/emulate-css/">emulating `forced-colors` mode</a> on devices other than Windows is only available since February 2022.
 
 ## Navigation
 
@@ -622,13 +652,69 @@ The presence of new or updated content in the DOM sometimes needs to be communic
 
 {{ figure_markup(
   content="23%",
-  caption="Desktop pages with live regions",
+  caption="Desktop pages with live regions using `aria-live`",
   classes="big-number",
   sheets_gid="711360879",
   sql_file="common_element_attributes.sql",
 ) }}
 
-ARIA live regions allow us to listen for changes in the DOM, such that the updated content can be announced by a screen reader. We found that 23% of desktop pages (up from 21% in 2021, 17% in 2020) and 22% of mobile pages (up from 20% in 2021, 16% in 2020) have live regions. For more information about live region variants and usage check out the <a hreflang="en" href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Live_Regions">MDN live region documentation</a> or play with this <a hreflang="en" href="https://dequeuniversity.com/library/aria/liveregion-playground">live demo by Deque</a>.
+ARIA live regions allow us to listen for changes in the DOM, such that the updated content can be announced by a screen reader. We found that 23% of desktop pages (up from 21% in 2021, 17% in 2020) and 22% of mobile pages (up from 20% in 2021, 16% in 2020) have live regions using `aria-live`. In addition, pages also use <a hreflang="en" href="https://www.w3.org/TR/wai-aria-1.1/#live_region_roles">live region ARIA roles</a> with implicit `aria-live` values.
+
+<figure>
+  <table>
+    <thead>
+      <tr>
+        <th scope="col">Role</th>
+        <th scope="col">Implicit <code>aria-live</code> value</th>
+        <th scope="col">Desktop</th>
+        <th scope="col">Mobile</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row"><code>status</code></th>
+        <td>polite</td>
+        <td class="numeric">5.64%</td>
+        <td class="numeric">5.09%</td>
+      </tr>
+      <tr>
+        <th scope="row"><code>alert</code></th>
+        <td>assertive</td>
+        <td class="numeric">3.74%</td>
+        <td class="numeric">3.41%</td>
+      </tr>
+      <tr>
+        <th scope="row"><code>timer</code></th>
+        <td>off</td>
+        <td class="numeric">0.58%</td>
+        <td class="numeric">0.58%</td>
+      </tr>
+      <tr>
+        <th scope="row"><code>log</code></th>
+        <td>polite</td>
+        <td class="numeric">0.37%</td>
+        <td class="numeric">0.36%</td>
+      </tr>
+      <tr>
+        <th scope="row"><code>marquee</code></th>
+        <td>off</td>
+        <td class="numeric">0.02%</td>
+        <td class="numeric">0.01%</td>
+      </tr>
+    </tbody>
+  </table>
+  <figcaption>
+    {{ figure_link(
+      caption="Pages with live region ARIA roles, and their implicit `aria-live` value",
+      sheets_gid="283521996",
+      sql_file="common_aria_role.sql",
+    ) }}
+ </figcaption>
+</figure>
+
+The <a hreflang="en" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/output">`<output>` element</a> also deserves an honorable mention, as the only HTML element with an implicit live region role that will announce its contents to end users. We see it used 16,144 times across our dataset for mobile sites and 12,120 times on desktop, or around 0.0002% of elements usage.
+
+For more information about live region variants and usage check out the <a hreflang="en" href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Live_Regions">MDN live region documentation</a> or play with this <a hreflang="en" href="https://dequeuniversity.com/library/aria/liveregion-playground">live demo by Deque</a>.
 
 ## Accessibility apps and overlays
 
